@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 function Sidebar() {
   return <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -13,10 +13,10 @@ function Sidebar() {
   <hr className="sidebar-divider my-0"/>
 
   <li className="nav-item pointer">
-      <div className="nav-link">
+      <Link  to = '/' className="nav-link">
           <i className="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
-      </div>
+      </Link>
   </li>
 
   <hr className="sidebar-divider"/>
@@ -26,17 +26,17 @@ function Sidebar() {
   </div>
 
   <li className="nav-item pointer">
-      <div className="nav-link">
+      <Link to='/user' className="nav-link">
           <i className="fas fa-fw fa-cog"></i>
-          <span>Add User</span>
-      </div>
+          <span>User</span>
+      </Link>
   </li>
 
   <li className="nav-item pointer">
-      <div className="nav-link">
+      <Link to='/add-user' className="nav-link">
           <i className="fas fa-fw fa-wrench"></i>
-          <span>Settings</span>
-      </div>
+          <span>Add User</span>
+      </Link>
   </li>
 
   <hr className="sidebar-divider"/>
