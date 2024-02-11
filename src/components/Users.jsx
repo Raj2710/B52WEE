@@ -5,8 +5,9 @@ import { Button } from 'react-bootstrap';
 import Helper from '../utils/Helper';
 function Users({users,setUsers}) {
   let navigate = useNavigate()
-
+  
   const handleDelete = (id)=>{
+    console.log(id)
     let index = Helper.findIndexById(users,id)
     if(index!==-1)
     {

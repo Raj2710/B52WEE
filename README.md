@@ -1,8 +1,16 @@
-# React + Vite
+useEffect
+  1. Without Dependancy Array - Triggers Initially and on every state changes
+  useEffect(()=>{
+    console.log("Welcome")
+  })
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  2. With Empty Dependancy array - Trigger Initially
 
-Currently, two official plugins are available:
+  useEffect(()=>{
+    console.log("Welcome")
+  },[])
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  3. With Dependancy Array: Triggers Initially and on mentioned state changes
+  useEffect(()=>{
+    console.log("Welcome")
+  },[batch,mobile,email])

@@ -1,19 +1,28 @@
 import React,{useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
-function AddUser() {
+function AddUser({users,setUsers}) {
 
   let [name,setName] = useState("")
   let [email,setEmail] = useState("")
   let [mobile,setMobile] = useState("")
   let [batch,setBatch] = useState("")
 
+  let navigate = useNavigate()
 
   let handleSubmit = ()=>{
-    console.log({
-      name,email,mobile,batch
-    })
+    const newUser = {
+      id:users.length?users[users.length-1].id+1:1,
+      name,
+      email,
+      mobile,
+      batch
+    }
+    users.push(newUser)
+    setUsers([...users])
+    navigate('/user')
   }
 
   return <div id="content-wrapper" className="d-flex flex-column">
