@@ -1,10 +1,13 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState,useContext} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate,useParams } from 'react-router-dom';
 import Helper from '../utils/Helper';
+import { UserContext } from '../App';
 
-function EditUser({users,setUsers}) {
+function EditUser() {
+
+  let {users,setUsers} = useContext(UserContext)
 
   let [name,setName] = useState("")
   let [email,setEmail] = useState("")

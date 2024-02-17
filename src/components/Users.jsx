@@ -1,13 +1,15 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 import Helper from '../utils/Helper';
-function Users({users,setUsers}) {
+import {UserContext} from '../App'
+function Users() {
   let navigate = useNavigate()
+  let {users,setUsers} = useContext(UserContext)
   
   const handleDelete = (id)=>{
-    console.log(id)
+  
     let index = Helper.findIndexById(users,id)
     if(index!==-1)
     {

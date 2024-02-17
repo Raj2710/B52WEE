@@ -5,6 +5,12 @@ import Users from './components/Users'
 import AddUser from './components/AddUser'
 import EditUser from './components/EditUser'
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
+import DashboardContextComponent from './utils/DashboardContextComponent'
+import NestedExample from './components/NestedExample'
+import Class from './components/NestedExample/Class'
+import Feedback from './components/NestedExample/Feedback'
+import Task from './components/NestedExample/Task'
+export const UserContext = React.createContext()
 function App() {
   const [users,setUsers] = useState([
     {
@@ -22,16 +28,26 @@ function App() {
       batch:"B51"
     }
   ])
+
   return <div id="wrapper">
   <BrowserRouter>
+  <UserContext.Provider value={{users,setUsers}}>
     <Sidebar/>
     <Routes>
-      <Route path='/' element={<Dashboard/>}/>
-      <Route path='/user' element={<Users users={users} setUsers={setUsers}/>}/>
-      <Route path='/add-user' element={<AddUser users={users} setUsers={setUsers}/>}/>
-      <Route path='/edit-user/:id' element={<EditUser users={users} setUsers={setUsers}/>}/>
+      <Route path='/' element={<DashboardContextComponent>
+                                <Dashboard/>
+                              </DashboardContextComponent>}/>
+      <Route path='/user' element={<Users/>}/>
+      <Route path='/add-user' element={<AddUser/>}/>
+      <Route path='/edit-user/:id' element={<EditUser/>}/>
+      <Route path='/nested-example' element={<NestedExample/>}>
+          <Route path='class' element={<Class/>}/>
+          <Route path='feedback' element={<Feedback/>}/>
+          <Route path='task' element={<Task/>}/>
+      </Route>
       <Route path='*' element={<Navigate to='/'/>}/>
-    </Routes>         
+    </Routes> 
+    </UserContext.Provider>        
   </BrowserRouter>
    </div>
 }
