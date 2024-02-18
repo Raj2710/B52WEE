@@ -4,23 +4,10 @@ import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 import Helper from '../utils/Helper';
 import {UserContext} from '../App'
+import Actions from '../utils/Actions';
 function Users() {
   let navigate = useNavigate()
   let {users,setUsers} = useContext(UserContext)
-  
-  const handleDelete = (id)=>{
-  
-    let index = Helper.findIndexById(users,id)
-    if(index!==-1)
-    {
-        users.splice(index,1)
-        setUsers([...users])
-    }
-    else
-    {
-      alert("Invalid Id")
-    }
-  }
 
   return <div id="content-wrapper" className="d-flex flex-column">
             <div id="content">
@@ -52,7 +39,7 @@ function Users() {
                           <td>
                               <Button variant='primary' onClick={()=>navigate(`/edit-user/${e.id}`)}>Edit</Button>
                               &nbsp;
-                              <Button variant='danger' onClick={()=>handleDelete(e.id)}>Delete</Button>
+                              <Button variant='danger' onClick={()=>setUsers({action:Actions.DELETE,id:e.id})}>Delete</Button>
                           </td>
                         </tr>
                       })

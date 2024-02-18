@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
+import Actions from '../utils/Actions';
 
 function AddUser() {
 
@@ -23,8 +24,7 @@ function AddUser() {
       mobile,
       batch
     }
-    users.push(newUser)
-    setUsers([...users])
+    setUsers({action:Actions.CREATE,data:newUser})
     navigate('/user')
   }
 

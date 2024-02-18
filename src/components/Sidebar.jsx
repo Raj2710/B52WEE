@@ -39,6 +39,27 @@ function Sidebar() {
       </Link>
   </li>
 
+  <li className="nav-item pointer">
+      <Link to='/nested-example' className="nav-link">
+          <i className="fas fa-fw fa-wrench"></i>
+          <span>Nested Routes</span>
+      </Link>
+  </li>
+
+  <li className="nav-item pointer">
+      <Link to='/useref' className="nav-link">
+          <i className="fas fa-fw fa-cog"></i>
+          <span>useRef</span>
+      </Link>
+  </li>
+
+  <li className="nav-item pointer">
+      <Link to='/usereducer' className="nav-link">
+          <i className="fas fa-fw fa-cog"></i>
+          <span>useReducer</span>
+      </Link>
+  </li>
+
   <hr className="sidebar-divider"/>
   
 

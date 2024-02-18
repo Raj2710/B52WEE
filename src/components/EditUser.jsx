@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate,useParams } from 'react-router-dom';
 import Helper from '../utils/Helper';
 import { UserContext } from '../App';
+import Actions from '../utils/Actions';
 
 function EditUser() {
 
@@ -36,9 +37,9 @@ const getData = ()=>{
   },[])
 
   let handleSubmit = ()=>{
-    let index = Helper.findIndexById(users,id)
-    users.splice(index,1,{id,name,email,mobile,batch})
-    setUsers([...users])
+    setUsers({action:Actions.EDIT,id:id,data:{
+      id,name,email,mobile,batch
+    }})
     navigate('/user')
   }
 
