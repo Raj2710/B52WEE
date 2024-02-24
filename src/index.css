@@ -1,0 +1,26 @@
+.createWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.formWrapper{
+    width: 50%;
+    margin: 10px;
+}
+
+.previewWrapper{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+
+}
+.homeWrapper{
+    width: 100%;
+    margin-left: 33%;
+    margin-right:33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
