@@ -1,0 +1,12 @@
+.taskWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardWrapper{
+    margin: 10px;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: space-between  ;
+}
