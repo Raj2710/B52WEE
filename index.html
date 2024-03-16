@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HTML</title>
+</head>
+<body>
+    <h1>Weclome to HTML in Nodejs</h1>
+    <button onclick="createTime()">Click Me</button>
+    <div id ="time"></div>
+
+    <script>
+        function createTime(){
+            let div = document.getElementById('time')
+            div.innerHTML = new Date()
+        }
+    </script>
+</body>
+</html>
