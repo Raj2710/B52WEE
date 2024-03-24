@@ -15,6 +15,32 @@ const getAllBooks = async(req,res)=>{
     }
 }
 
+const getBooksByUserId = async(req,res)=>{
+    try {
+        let userId = req.params.id
+        let user = await UserModel.findById(userId)
+        if(user)
+        {
+            let books = await BooksModel.find({_id:{
+                $in:user.books
+            }},{title:1,author:1})
+            res.status(200).send({
+                message:"Data Fetched Successfully",
+                books
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:"Invalid User Id"
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            message:error.message || "Internal Server Error"
+        })
+    }
+}
 const create = async(req,res)=>{
 try {
     await BooksModel.create(req.body)
@@ -100,5 +126,6 @@ export default {
     create,
     getAllBooks,
     rentBook,
-    returnBook
+    returnBook,
+    getBooksByUserId
 }
