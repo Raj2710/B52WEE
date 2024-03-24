@@ -1,10 +1,9 @@
-import mongodb from 'mongodb'
+import mongoose from 'mongoose'
 
-const url = 'mongodb+srv://Raj2710:Raj2710@raj.x3e0h.mongodb.net/?retryWrites=true&w=majority&appName=Raj'
-const client = new mongodb.MongoClient(url)
 const dbName = 'B52WEE'
+const url = `mongodb+srv://Raj2710:Raj2710@raj.x3e0h.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Raj`
 
-export default {
-    client,
-    dbName
-}
+
+mongoose.connect(url)
+
+export default mongoose
