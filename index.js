@@ -1,6 +1,8 @@
 import express from 'express'
 import AppRouter from './src/routes/index.js'
-const PORT = process.env.PORT || 8000
+import dotenv from 'dotenv'
+dotenv.config()
+const PORT = process.env.PORT
 const app = express()
 
 app.use(express.json())
